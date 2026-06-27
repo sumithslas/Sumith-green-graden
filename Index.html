@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sumith Green Garden</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f4fff4;
+}
+
+/* Language Switcher Styling */
+.lang-switcher {
+    text-align: right;
+    padding: 10px 20px;
+    background: #1e781e;
+}
+
+.lang-btn {
+    background: white;
+    color: #228B22;
+    border: none;
+    padding: 5px 12px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.lang-btn.active {
+    background: #ffd700;
+    color: #000;
+}
+
+header{
+    background:#228B22;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+.hero{
+    text-align:center;
+    padding:50px 20px;
+}
+
+.hero h2{
+    color:#228B22;
+    margin-bottom:15px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.contact{
+    background:#228B22;
+    color:white;
+    padding:30px;
+    text-align:center;
+}
+
+.btn{
+    display:inline-block;
+    background:white;
+    color:#228B22;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:30px;
+    margin-top:15px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- භාෂාව තෝරන බොත්තම් (Language Bar) -->
+<div class="lang-switcher">
+    <button class="lang-btn active" onclick="changeLanguage('en')">English</button>
+    <button class="lang-btn" onclick="changeLanguage('si')">සිංහල</button>
+</div>
+
+<header>
+    <h1 id="main-title">🌿 Sumith Green Garden 🌿</h1>
+    <p id="sub-title">Quality Plants For Your Home & Garden</p>
+</header>
+
+<section class="hero">
+    <h2 id="hero-title">Welcome To Our Plant Nursery</h2>
+    <p id="hero-desc">We sell fruit plants, flower plants and ornamental plants.</p>
+</section>
+
+<section class="gallery">
+    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600" alt="Plant">
+    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600" alt="Plant">
+    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600" alt="Plant">
+</section>
+
+<section class="contact">
+    <h2 id="contact-title">Contact Us</h2>
+    <p>📞 0763627434</p>
+    <p>📧 sumith.madushantha@gmail.com</p>
+
+    <a class="btn" href="https://wa.me/94763627434" id="whatsapp-btn">
+        WhatsApp Us
+    </a>
+</section>
+
+<!-- භාෂාව මාරු කිරීමට අදාළ JavaScript කේතය -->
+<script>
+const translations = {
+    en: {
+        mainTitle: "🌿 Sumith Green Garden 🌿",
+        subTitle: "Quality Plants For Your Home & Garden",
+        heroTitle: "Welcome To Our Plant Nursery",
+        heroDesc: "We sell fruit plants, flower plants and ornamental plants.",
+        contactTitle: "Contact Us",
+        whatsappBtn: "WhatsApp Us"
+    },
+    si: {
+        mainTitle: "🌿 සුමිත් ග්‍රීන් ගාඩන් 🌿",
+        subTitle: "ඔබේ නිවසට සහ ගෙවත්තට උසස් තත්ත්වයේ පැලෑටි",
+        heroTitle: "අපගේ පැල තවානට ඔබව සාදරයෙන් පිළිගනිමු",
+        heroDesc: "අප සතුව පළතුරු පැල, මල් පැල සහ විසිතුරු පැල විකිණීමට ඇත.",
+        contactTitle: "අපව සම්බන්ධ කර ගැනීමට",
+        whatsappBtn: "WhatsApp පණිවිඩයක් එවන්න"
+    }
+};
+
+function changeLanguage(lang) {
+    // අකුරු සහ විස්තර මාරු කිරීම
+    document.getElementById('main-title').innerText = translations[lang].mainTitle;
+    document.getElementById('sub-title').innerText = translations[lang].subTitle;
+    document.getElementById('hero-title').innerText = translations[lang].heroTitle;
+    document.getElementById('hero-desc').innerText = translations[lang].heroDesc;
+    document.getElementById('contact-title').innerText = translations[lang].contactTitle;
+    document.getElementById('whatsapp-btn').innerText = translations[lang].whatsappBtn;
+
+    // Active Button එක පාට කිරීම
+    const buttons = document.querySelectorAll('.lang-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    if(lang === 'en') {
+        buttons[0].classList.add('active');
+    } else {
+        buttons[1].classList.add('active');
+    }
+}
+</script>
+
+</body>
+</html>
